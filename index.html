@@ -324,15 +324,18 @@ async function saveProfile(details) {
   });
   if(error) message("Account signed in, but profile setup needs attention: "+error.message);
 }
-async function signIn() {
-  const email=document.getElementById("authEmail").value.trim();
-  const password=document.getElementById("authPassword").value;
-  const {data,error}=await db.auth.signInWithPassword({email,password});
-  if(error) return message(error.message);
-  currentUser=data.user;
-  const {data:profile}=await db.from("seller_profiles").select("*").eq("id",currentUser.id).maybeSingle();
-  if(!profile) message("You're signed in. Please complete your seller profile with the registration details.");
-  refreshAccount();
+function showAuth(mode) {
+  const signupFields = document.getElementById("signupFields");
+  const loginFields = document.getElementById("loginFields");
+
+  if (mode === "login") {
+    signupFields.classList.add("hidden");
+    loginFields.classList.remove("hidden");
+  } else {
+    loginFields.classList.add("hidden");
+    signupFields.classList.remove("hidden");
+  }
+}
 }
 async function signOut() {
   await db.auth.signOut();
