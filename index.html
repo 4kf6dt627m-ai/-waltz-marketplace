@@ -282,7 +282,7 @@ async function signUp() {
     account_type:document.getElementById("authType").value,
     location:document.getElementById("authLocation").value.trim()
   };
-  const {data,error}=await db.auth.signUp({email,password,options:{data:details}});
+  const {data,error}=await db.auth.signUp({email,password,options:{data:details,emailRedirectTo:"https://4kf6dt627m-ai.github.io/-waltz-marketplace/"}});
   if(error) return message(error.message);
   if(data.user && data.session) {
     currentUser=data.user;
