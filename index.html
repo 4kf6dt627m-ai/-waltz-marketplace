@@ -1,112 +1,203 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WALTŽ — Where Opportunity Moves</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <style>
-    :root {
-  --purple: #006B45;
-  --gold: #FFFFFF;
-  --light: #F4F8F5;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WALTŽ — Where Opportunity Moves</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+:root {
+  --green: #006B45;
+  --green2: #0B8F60;
   --white: #FFFFFF;
+  --light: #F4F8F5;
+  --border: #E2EDE6;
+  --text: #222222;
 }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: #241044;
-    }
-    header {
-      background: var(--purple);
-      color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .logo { font-size: 27px; font-weight: 900; }
-    .logo span { color: var(--gold); }
-    header small { display: block; color: #ddd; font-size: 10px; letter-spacing: 2px; }
-    button {
-      border: 0;
-      border-radius: 9px;
-      padding: 12px 17px;
-      background: #006B45;
-color: #FFFFFF;
-      color: #241044;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .#authForms .form-grid .outline {
-  background: #FFFFFF;
-  color: #006B45;
-  border: 2px solid #006B45;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: var(--text);
 }
-    .hero {
-      background: linear-gradient(120deg, #006B45, #0B8F60);
-      color: white;
-      padding: 45px 22px;
-      text-align: center;
-    }
-    .hero h1 { font-size: 34px; margin: 0 0 12px; }
-    .hero p { color: #eee; }
-    .search {
-      max-width: 650px;
-      margin: 22px auto 0;
-      display: flex;
-      gap: 8px;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 13px;
-      margin: 7px 0;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
-      background: white;
-    }
-    .search input { margin: 0; }
-    main { max-width: 1100px; margin: auto; padding: 22px; }
-    .section-title { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .categories { display: flex; gap: 9px; overflow-x: auto; padding: 12px 0; }
-    .categories button { white-space: nowrap; background: white; border: 1px solid #ddd; }
-    .categories button.active { background: var(--purple); color: white; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 16px; }
-    
-      .card {
-  background: #FFFFFF;
-  border: 1px solid #E2EDE6;
+
+header {
+  background: var(--green);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo { font-size: 27px; font-weight: 900; }
+.logo span { color: white; }
+
+header small {
+  display: block;
+  color: #eee;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+button {
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 17px;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+button:hover { background: var(--green2); }
+
+.outline {
+  background: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.hero {
+  background: linear-gradient(120deg, var(--green), var(--green2));
+  color: white;
+  padding: 45px 22px;
+  text-align: center;
+}
+
+.hero h1 { font-size: 34px; margin: 0 0 12px; }
+.hero p { color: #eee; }
+
+.search {
+  max-width: 650px;
+  margin: 22px auto 0;
+  display: flex;
+  gap: 8px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+}
+
+.search input { margin: 0; }
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 22px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.categories {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  padding: 12px 0;
+}
+
+.categories button {
+  white-space: nowrap;
+  background: white;
+  color: var(--green);
+  border: 1px solid var(--border);
+}
+
+.categories button.active {
+  background: var(--green);
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
   border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 3px 14px #0000000c;
-    }
-    .card img { width: 100%; height: 170px; object-fit: cover; background: #eee; }
-    .card-content { padding: 14px; }
-    .price { color: #986b00; font-size: 19px; font-weight: bold; }
-    .muted { color: #777; font-size: 13px; }
-    ..panel {
-  background: #FFFFFF;
-      padding: 22px;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 3px 14px #0000000c;
-    }
-    .hidden { display: none !important; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    footer { background: var(--purple); color: white; text-align: center; padding: 25px; margin-top: 40px; }
-    #message { padding: 12px; border-radius: 8px; margin: 12px 0; }
-    @media(max-width:600px) {
-      .hero h1 { font-size: 27px; }
-      .form-grid { grid-template-columns: 1fr; }
-      .search { flex-direction: column; }
-    }
-  </style>
+  overflow: hidden;
+  box-shadow: 0 3px 14px #0000000c;
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.card-content { padding: 14px; }
+
+.price {
+  color: var(--green);
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.muted { color: #777; font-size: 13px; }
+
+.panel {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 3px 14px #0000000c;
+}
+
+.hidden { display: none !important; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#message {
+  padding: 12px;
+  border-radius: 8px;
+  margin: 12px 0;
+  background: #e8f5ed;
+  color: var(--green);
+}
+
+footer {
+  background: var(--green);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+@media(max-width:600px) {
+  .hero h1 { font-size: 27px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .search { flex-direction: column; }
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -137,6 +228,7 @@ color: #FFFFFF;
       <h2>Explore Marketplace</h2>
       <button onclick="showSection('create')">+ Sell an item</button>
     </div>
+
     <div class="categories" id="categories">
       <button class="active" onclick="chooseCategory('All',this)">All</button>
       <button onclick="chooseCategory('Vehicles',this)">Vehicles</button>
@@ -148,6 +240,7 @@ color: #FFFFFF;
       <button onclick="chooseCategory('Jobs & Services',this)">Jobs & Services</button>
       <button onclick="chooseCategory('Other',this)">Other</button>
     </div>
+
     <div id="listingGrid" class="grid">
       <p>Loading marketplace...</p>
     </div>
@@ -168,19 +261,22 @@ color: #FFFFFF;
         <input id="authName" placeholder="Full name or business name">
         <input id="authPhone" placeholder="Phone number">
         <input id="authWhatsapp" placeholder="WhatsApp number">
+
         <select id="authType">
           <option value="individual">Individual seller</option>
           <option value="business">Business seller</option>
         </select>
+
         <input id="authLocation" placeholder="Your location in Ghana">
         <input id="authEmail" type="email" placeholder="Gmail address">
         <input id="authPassword" type="password" placeholder="Create password">
+
         <button onclick="signUp()">CREATE MY ACCOUNT</button>
       </div>
 
       <div id="loginFields" class="hidden">
         <h3>Welcome Back!</h3>
-        <input id="loginEmail" type="email" placeholder="Your registered Gmail address">
+        <input id="loginIdentifier" type="text" placeholder="Gmail address or phone number">
         <input id="loginPassword" type="password" placeholder="Your password">
         <button onclick="signIn()">LOG IN TO WALTŽ</button>
       </div>
@@ -192,18 +288,14 @@ color: #FFFFFF;
       <button class="outline" onclick="signOut()">Log Out</button>
     </div>
   </section>
-    <div id="loggedIn" class="hidden">
-      <h3 id="accountEmail"></h3>
-      <button onclick="showSection('create')">Post an advertisement</button>
-      <button class="outline" style="background:#241044" onclick="signOut()">Log Out</button>
-    </div>
-  </section>
 
   <section id="createSection" class="panel hidden">
     <h2>Post an Advertisement</h2>
     <p>Each advertisement costs GH₵50 and runs for 30 days after payment confirmation.</p>
-    <p class="muted">You can prepare your listing now. It will not be published until payment is securely confirmed.</p>
+    <p class="muted">Your advertisement will not be published until payment is securely confirmed.</p>
+
     <input id="itemTitle" placeholder="Product or property title">
+
     <select id="itemCategory">
       <option>Vehicles</option>
       <option>Phones & Electronics</option>
@@ -214,15 +306,19 @@ color: #FFFFFF;
       <option>Jobs & Services</option>
       <option>Other</option>
     </select>
+
     <div class="form-grid">
       <input id="itemPrice" type="number" min="0" placeholder="Price in GH₵">
       <input id="itemLocation" placeholder="Location">
     </div>
+
     <textarea id="itemDescription" rows="4" placeholder="Describe your advertisement"></textarea>
     <input id="itemPhone" placeholder="Contact phone number">
     <input id="itemWhatsapp" placeholder="WhatsApp number">
+
     <label>Upload photos (up to 5)</label>
     <input id="itemPhotos" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+
     <button onclick="saveListing()">Save Advertisement</button>
   </section>
 </main>
@@ -246,152 +342,269 @@ function message(text) {
   box.textContent = text;
   box.classList.remove("hidden");
 }
+
 function showSection(section) {
-  ["browse","account","create"].forEach(s =>
-    document.getElementById(s+"Section").classList.toggle("hidden",s!==section)
-  );
-  if(section==="account") refreshAccount();
-  if(section==="create" && !currentUser) {
+  ["browse","account","create"].forEach(s => {
+    document.getElementById(s + "Section").classList.toggle("hidden", s !== section);
+  });
+
+  if (section === "account") refreshAccount();
+
+  if (section === "create" && !currentUser) {
     message("Please create an account or log in before posting.");
     showSection("account");
   }
 }
-function chooseCategory(category,button) {
-  selectedCategory=category;
-  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+
+function showAuth(mode) {
+  const signup = document.getElementById("signupFields");
+  const login = document.getElementById("loginFields");
+
+  if (mode === "login") {
+    signup.classList.add("hidden");
+    login.classList.remove("hidden");
+  } else {
+    login.classList.add("hidden");
+    signup.classList.remove("hidden");
+  }
+}
+
+function chooseCategory(category, button) {
+  selectedCategory = category;
+  document.querySelectorAll(".categories button").forEach(b => b.classList.remove("active"));
   button.classList.add("active");
   loadListings();
 }
+
 async function loadListings() {
-  const grid=document.getElementById("listingGrid");
-  grid.innerHTML="<p>Loading...</p>";
-  let query=db.from("listings").select("*,listing_images(image_url)")
-    .eq("status","active").eq("payment_confirmed",true)
-    .gt("expires_at",new Date().toISOString()).order("created_at",{ascending:false});
-  if(selectedCategory!=="All") query=query.eq("category",selectedCategory);
-  const search=document.getElementById("searchInput").value.trim();
-  if(search) query=query.ilike("title","%"+search+"%");
-  const {data,error}=await query;
-  if(error) { grid.textContent="Unable to load listings. Please try again."; return; }
-  if(!data || !data.length) { grid.innerHTML="<p>No advertisements yet. Check back soon!</p>"; return; }
-  grid.innerHTML="";
-  data.forEach(item=>{
-    const card=document.createElement("div");
-    card.className="card";
-    const img=document.createElement("img");
-    img.src=item.listing_images?.[0]?.image_url || "https://placehold.co/600x400?text=WALTZ";
-    img.alt=item.title;
-    const content=document.createElement("div");
-    content.className="card-content";
-    const title=document.createElement("h3");
-    title.textContent=item.title;
-    const price=document.createElement("div");
-    price.className="price";
-    price.textContent="GH₵ "+Number(item.price).toLocaleString();
-    const location=document.createElement("p");
-    location.className="muted";
-    location.textContent=item.location;
+  const grid = document.getElementById("listingGrid");
+  grid.innerHTML = "<p>Loading...</p>";
+
+  let query = db.from("listings")
+    .select("*,listing_images(image_url)")
+    .eq("status","active")
+    .eq("payment_confirmed",true)
+    .gt("expires_at",new Date().toISOString())
+    .order("created_at",{ascending:false});
+
+  if (selectedCategory !== "All") {
+    query = query.eq("category",selectedCategory);
+  }
+
+  const search = document.getElementById("searchInput").value.trim();
+  if (search) query = query.ilike("title","%" + search + "%");
+
+  const {data,error} = await query;
+
+  if (error) {
+    grid.textContent = "Unable to load listings. Please try again.";
+    return;
+  }
+
+  if (!data || !data.length) {
+    grid.innerHTML = "<p>No advertisements yet. Check back soon!</p>";
+    return;
+  }
+
+  grid.innerHTML = "";
+
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const img = document.createElement("img");
+    img.src = item.listing_images?.[0]?.image_url || "https://placehold.co/600x400?text=WALTZ";
+    img.alt = item.title;
+
+    const content = document.createElement("div");
+    content.className = "card-content";
+
+    const title = document.createElement("h3");
+    title.textContent = item.title;
+
+    const price = document.createElement("div");
+    price.className = "price";
+    price.textContent = "GH₵ " + Number(item.price).toLocaleString();
+
+    const location = document.createElement("p");
+    location.className = "muted";
+    location.textContent = item.location;
+
     content.append(title,price,location);
     card.append(img,content);
     grid.append(card);
   });
 }
+
 async function signUp() {
-  const email=document.getElementById("authEmail").value.trim();
-  const password=document.getElementById("authPassword").value;
-  const name=document.getElementById("authName").value.trim();
-  if(!email||!password||!name) return message("Enter your name, email and password.");
-  const details={
-    display_name:name,
-    phone:document.getElementById("authPhone").value.trim(),
-    whatsapp:document.getElementById("authWhatsapp").value.trim(),
-    account_type:document.getElementById("authType").value,
-    location:document.getElementById("authLocation").value.trim()
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  const name = document.getElementById("authName").value.trim();
+
+  if (!email || !password || !name) {
+    return message("Enter your name, email and password.");
+  }
+
+  const details = {
+    display_name: name,
+    phone: document.getElementById("authPhone").value.trim(),
+    whatsapp: document.getElementById("authWhatsapp").value.trim(),
+    account_type: document.getElementById("authType").value,
+    location: document.getElementById("authLocation").value.trim()
   };
-  const {data,error}=await db.auth.signUp({email,password,options:{data:details,emailRedirectTo:"https://4kf6dt627m-ai.github.io/-waltz-marketplace/"}});
-  if(error) return message(error.message);
-  if(data.user && data.session) {
-    currentUser=data.user;
+
+  const {data,error} = await db.auth.signUp({
+    email,
+    password,
+    options: {
+      data: details,
+      emailRedirectTo: "https://4kf6dt627m-ai.github.io/-waltz-marketplace/"
+    }
+  });
+
+  if (error) return message(error.message);
+
+  if (data.user && data.session) {
+    currentUser = data.user;
     await saveProfile(details);
     refreshAccount();
   }
+
   message("Registration submitted. Check your email to confirm your account, then log in.");
 }
-async function saveProfile(details) {
-  if(!currentUser) return;
-  const {error}=await db.from("seller_profiles").upsert({
-    id:currentUser.id,...details
-  });
-  if(error) message("Account signed in, but profile setup needs attention: "+error.message);
-}
-function showAuth(mode) {
-  const signupFields = document.getElementById("signupFields");
-  const loginFields = document.getElementById("loginFields");
 
-  if (mode === "login") {
-    signupFields.classList.add("hidden");
-    loginFields.classList.remove("hidden");
-  } else {
-    loginFields.classList.add("hidden");
-    signupFields.classList.remove("hidden");
+async function saveProfile(details) {
+  if (!currentUser) return;
+
+  const {error} = await db.from("seller_profiles").upsert({
+    id: currentUser.id,
+    ...details
+  });
+
+  if (error) {
+    message("Account signed in, but profile setup needs attention: " + error.message);
   }
 }
+
+async function signIn() {
+  const identifier = document.getElementById("loginIdentifier").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  if (!identifier || !password) {
+    return message("Enter your Gmail address or phone number and password.");
+  }
+
+  const credentials = identifier.includes("@")
+    ? {email: identifier, password}
+    : {phone: identifier, password};
+
+  const {data,error} = await db.auth.signInWithPassword(credentials);
+
+  if (error) return message(error.message);
+
+  currentUser = data.user;
+  refreshAccount();
+  message("Welcome back to WALTŽ!");
 }
+
 async function signOut() {
-  await db.auth.signOut();
-  currentUser=null;
+  const {error} = await db.auth.signOut();
+  if (error) return message(error.message);
+
+  currentUser = null;
   refreshAccount();
   showSection("browse");
 }
+
 function refreshAccount() {
   document.getElementById("authForms").classList.toggle("hidden",!!currentUser);
   document.getElementById("loggedIn").classList.toggle("hidden",!currentUser);
-  if(currentUser) document.getElementById("accountEmail").textContent=currentUser.email;
+
+  if (currentUser) {
+    document.getElementById("accountEmail").textContent =
+      currentUser.email || currentUser.phone || "Seller account";
+  }
 }
+
 async function saveListing() {
-  if(!currentUser) return message("Please log in first.");
-  const title=document.getElementById("itemTitle").value.trim();
-  const price=Number(document.getElementById("itemPrice").value);
-  const location=document.getElementById("itemLocation").value.trim();
-  if(!title||!location||!Number.isFinite(price)||price<0) return message("Enter a title, valid price and location.");
-  const {data:listing,error}=await db.from("listings").insert({
-    seller_id:currentUser.id,
+  if (!currentUser) return message("Please log in first.");
+
+  const title = document.getElementById("itemTitle").value.trim();
+  const price = Number(document.getElementById("itemPrice").value);
+  const location = document.getElementById("itemLocation").value.trim();
+
+  if (!title || !location || !Number.isFinite(price) || price < 0) {
+    return message("Enter a title, valid price and location.");
+  }
+
+  const {data:listing,error} = await db.from("listings").insert({
+    seller_id: currentUser.id,
     title,
-    category:document.getElementById("itemCategory").value,
+    category: document.getElementById("itemCategory").value,
     price,
     location,
-    description:document.getElementById("itemDescription").value,
-    contact_phone:document.getElementById("itemPhone").value,
-    contact_whatsapp:document.getElementById("itemWhatsapp").value,
-    status:"draft",
-    payment_confirmed:false
+    description: document.getElementById("itemDescription").value,
+    contact_phone: document.getElementById("itemPhone").value,
+    contact_whatsapp: document.getElementById("itemWhatsapp").value,
+    status: "draft",
+    payment_confirmed: false
   }).select().single();
-  if(error) return message(error.message);
-  const files=Array.from(document.getElementById("itemPhotos").files || []);
-  if(files.length>5) return message("Please select no more than 5 photos. Your draft has been saved.");
-  for(let i=0;i<files.length;i++) {
-    const file=files[i];
-    if(file.size>5*1024*1024) return message("Each photo must be 5 MB or smaller. Your draft has been saved.");
-    const path=`${currentUser.id}/${listing.id}/${Date.now()}-${i}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`;
-    const {error:uploadError}=await db.storage.from("waltz-listing-images").upload(path,file);
-    if(uploadError) return message("Draft saved, but photo upload failed: "+uploadError.message);
-    const {data:urlData}=db.storage.from("waltz-listing-images").getPublicUrl(path);
-    const {error:imageError}=await db.from("listing_images").insert({
-      listing_id:listing.id,image_url:urlData.publicUrl,position:i
-    });
-    if(imageError) return message("Draft saved, but photo record failed: "+imageError.message);
+
+  if (error) return message(error.message);
+
+  const files = Array.from(document.getElementById("itemPhotos").files || []);
+
+  if (files.length > 5) {
+    return message("Please select no more than 5 photos. Your draft has been saved.");
   }
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    if (file.size > 5 * 1024 * 1024) {
+      return message("Each photo must be 5 MB or smaller. Your draft has been saved.");
+    }
+
+    const path = `${currentUser.id}/${listing.id}/${Date.now()}-${i}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`;
+
+    const {error:uploadError} = await db.storage
+      .from("waltz-listing-images")
+      .upload(path,file);
+
+    if (uploadError) {
+      return message("Draft saved, but photo upload failed: " + uploadError.message);
+    }
+
+    const {data:urlData} = db.storage
+      .from("waltz-listing-images")
+      .getPublicUrl(path);
+
+    const {error:imageError} = await db.from("listing_images").insert({
+      listing_id: listing.id,
+      image_url: urlData.publicUrl,
+      position: i
+    });
+
+    if (imageError) {
+      return message("Draft saved, but photo record failed: " + imageError.message);
+    }
+  }
+
   message("Advertisement saved as a draft. Payment and publishing will be connected after secure payment setup.");
 }
-db.auth.getSession().then(({data})=>{
-  currentUser=data.session?.user || null;
+
+db.auth.getSession().then(({data}) => {
+  currentUser = data.session?.user || null;
   refreshAccount();
 });
-db.auth.onAuthStateChange((_event,session)=>{
-  currentUser=session?.user || null;
+
+db.auth.onAuthStateChange((_event,session) => {
+  currentUser = session?.user || null;
   refreshAccount();
 });
+
 loadListings();
 </script>
+
 </body>
 </html>
