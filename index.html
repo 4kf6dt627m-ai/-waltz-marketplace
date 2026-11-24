@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +7,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     :root {
-  --purple: #080808;
-  --gold: #C0C0C0;
-  --light: #111111;
+  --purple: #006B45;
+  --gold: #FFFFFF;
+  --light: #F4F8F5;
   --white: #FFFFFF;
 }
     * { box-sizing: border-box; }
@@ -37,14 +36,15 @@
       border: 0;
       border-radius: 9px;
       padding: 12px 17px;
-      background: var(--gold);
+      background: #006B45;
+color: #FFFFFF;
       color: #241044;
       font-weight: bold;
       cursor: pointer;
     }
     .outline { background: transparent; color: white; border: 1px solid var(--gold); }
     .hero {
-      background: linear-gradient(120deg, #241044, #492276);
+      background: linear-gradient(120deg, #006B45, #0B8F60);
       color: white;
       padding: 45px 22px;
       text-align: center;
@@ -73,9 +73,11 @@
     .categories button { white-space: nowrap; background: white; border: 1px solid #ddd; }
     .categories button.active { background: var(--purple); color: white; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 16px; }
-    .card {
-      background: white;
-      border-radius: 12px;
+    
+      .card {
+  background: #FFFFFF;
+  border: 1px solid #E2EDE6;
+  border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 3px 14px #0000000c;
     }
@@ -83,8 +85,8 @@
     .card-content { padding: 14px; }
     .price { color: #986b00; font-size: 19px; font-weight: bold; }
     .muted { color: #777; font-size: 13px; }
-    .panel {
-      background: white;
+    ..panel {
+  background: #FFFFFF;
       padding: 22px;
       border-radius: 12px;
       margin: 20px 0;
