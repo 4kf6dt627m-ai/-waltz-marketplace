@@ -151,21 +151,43 @@ color: #FFFFFF;
 
   <section id="accountSection" class="panel hidden">
     <h2>Seller Account</h2>
-    <p class="muted">Create an account or sign in to sell on WALTŽ.</p>
+    <p class="muted">Welcome to WALTŽ. Sell with confidence.</p>
+
     <div id="authForms">
-      <input id="authName" placeholder="Full name or business name">
-      <input id="authPhone" placeholder="Phone number">
-      <input id="authWhatsapp" placeholder="WhatsApp number">
-      <select id="authType">
-        <option value="individual">Individual seller</option>
-        <option value="business">Business seller</option>
-      </select>
-      <input id="authLocation" placeholder="Your location in Ghana">
-      <input id="authEmail" type="email" placeholder="Email address">
-      <input id="authPassword" type="password" placeholder="Password">
-      <button onclick="signUp()">Create Account</button>
-      <button class="outline" style="background:#241044" onclick="signIn()">Log In</button>
+      <div class="form-grid">
+        <button onclick="showAuth('signup')">CREATE ACCOUNT</button>
+        <button class="outline" onclick="showAuth('login')">LOG IN</button>
+      </div>
+
+      <div id="signupFields">
+        <h3>New Seller Registration</h3>
+        <input id="authName" placeholder="Full name or business name">
+        <input id="authPhone" placeholder="Phone number">
+        <input id="authWhatsapp" placeholder="WhatsApp number">
+        <select id="authType">
+          <option value="individual">Individual seller</option>
+          <option value="business">Business seller</option>
+        </select>
+        <input id="authLocation" placeholder="Your location in Ghana">
+        <input id="authEmail" type="email" placeholder="Gmail address">
+        <input id="authPassword" type="password" placeholder="Create password">
+        <button onclick="signUp()">CREATE MY ACCOUNT</button>
+      </div>
+
+      <div id="loginFields" class="hidden">
+        <h3>Welcome Back!</h3>
+        <input id="loginEmail" type="email" placeholder="Your registered Gmail address">
+        <input id="loginPassword" type="password" placeholder="Your password">
+        <button onclick="signIn()">LOG IN TO WALTŽ</button>
+      </div>
     </div>
+
+    <div id="loggedIn" class="hidden">
+      <h3 id="accountEmail"></h3>
+      <button onclick="showSection('create')">Post an advertisement</button>
+      <button class="outline" onclick="signOut()">Log Out</button>
+    </div>
+  </section>
     <div id="loggedIn" class="hidden">
       <h3 id="accountEmail"></h3>
       <button onclick="showSection('create')">Post an advertisement</button>
